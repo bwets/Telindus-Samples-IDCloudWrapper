@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\IDCloud1Image.xml" />
+    <None Remove="Resources\IDCloud2Images.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\IDCloud1Image.xml" />
+    <EmbeddedResource Include="Resources\IDCloud2Images.xml" />
+  </ItemGroup>
+
+</Project>

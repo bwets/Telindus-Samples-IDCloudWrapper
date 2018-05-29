@@ -1,0 +1,9 @@
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\bin\Debug\netcoreapp2.0\IDCloudWrapper.deps.json
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\bin\Debug\netcoreapp2.0\IDCloudWrapper.dll
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\bin\Debug\netcoreapp2.0\IDCloudWrapper.pdb
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.csprojAssemblyReference.cache
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.csproj.CoreCompileInputs.cache
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.AssemblyInfoInputs.cache
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.AssemblyInfo.cs
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.dll
+C:\Sources\Telindus\DigitalKYC\IDCloudWrapper\obj\Debug\netcoreapp2.0\IDCloudWrapper.pdb
