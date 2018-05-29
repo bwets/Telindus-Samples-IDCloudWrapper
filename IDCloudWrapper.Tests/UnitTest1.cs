@@ -130,7 +130,6 @@ namespace IDCloudWrapper.Tests
 
 			var results = await wrapper.Execute(idCardImage.Data, idCardImage.Type, faceImage.Data, faceImage.Type);
 
-			this.Log.Write(results);
 
 			var key = "TEST_FACE_RECOGNITION_RATIO";
 			if (results.ContainsKey(key))
@@ -139,7 +138,7 @@ namespace IDCloudWrapper.Tests
 			}
 			else
 			{
-				return "XXXXXXX";
+				return "NO DATA IN PASS " + passNumber;
 			}
 
 
@@ -147,18 +146,49 @@ namespace IDCloudWrapper.Tests
 		}
 
 		[Theory]
-		[InlineData("3780-card.jpg", "3780-photo.jpg", TangoImages)]
+				[InlineData("3780-card.jpg", "3780-photo.jpg", TangoImages)]
+		[InlineData("3795-card.jpg", "3795-photo.jpg", TangoImages)]
+		[InlineData("3820-card.jpg", "3820-photo.jpeg", TangoImages)]
+		[InlineData("3821-card.jpg", "3821-photo.jpg", TangoImages)]
+		[InlineData("3825-card.jpg", "3825-photo.jpg", TangoImages)]
+		[InlineData("3846-card.jpg", "3846-photo.jpg", TangoImages)]
+		[InlineData("3866-card.jpg", "3866-photo.jpg", TangoImages)]
+		[InlineData("3867-card.jpg", "3867-photo.jpg", TangoImages)]
+		[InlineData("3872-card.jpg", "3872-photo.jpg", TangoImages)]
+		[InlineData("3883-card.jpg", "3883-photo.jpg", TangoImages)]
+		[InlineData("3889-card.png", "3889-photo.png", TangoImages)]
+		[InlineData("3895-card.jpg", "3895-photo.jpg", TangoImages)]
+		[InlineData("3898-card.jpg", "3898-photo.jpg", TangoImages)]
+		[InlineData("3906-card.jpg", "3906-photo.jpg", TangoImages)]
+		[InlineData("3921-card.png", "3921-photo.jpg", TangoImages)]
+		[InlineData("3923-card.jpg", "3923-photo.jpg", TangoImages)]
+		[InlineData("3925-card.jpg", "3925-photo.jpg", TangoImages)]
+		[InlineData("3941-card.jpg", "3941-photo.jpg", TangoImages)]
+		[InlineData("3966-card.jpeg", "3966-photo.jpeg", TangoImages)]
+		[InlineData("3968-card.jpg", "3968-photo.jpg", TangoImages)]
+		[InlineData("3969-card.jpg", "3969-photo.jpg", TangoImages)]
+		[InlineData("3970-card.jpg", "3970-photo.jpg", TangoImages)]
+		[InlineData("3973-card.jpeg", "3973-photo.jpeg", TangoImages)]
+		[InlineData("3974-card.jpg", "3974-photo.jpg", TangoImages)]
+		[InlineData("3977-card.jpg", "3977-photo.jpg", TangoImages)]
+		[InlineData("3978-card.jpg", "3978-photo.jpg", TangoImages)]
+		[InlineData("3980-card.jpg", "3980-photo.jpg", TangoImages)]
+		[InlineData("110857100428-card.jpeg", "110857100428-photo.jpeg", TangoImages)]
+		[InlineData("set1-car.png", "set1-photo.jpg", TangoImages)]
 		public async Task TestFaceMatchingConsistency(string idCardFilename, string faceFilename, string imagePath)
 		{
 			const int passNumber = 10;
 			var ratios = new List<string>();
-
+			
+			Log.Write("Consistency test");
+			Log.Write($"Files: {idCardFilename} / {faceFilename}");
 			for (var i = 0; i < passNumber; i++)
 			{
 				var ratio = await this.GetRatio(imagePath, idCardFilename, faceFilename, i);
+				Log.Write($"Pass {i} RATIO = {ratio}");
 				ratios.Add(ratio);
 			}
-
+			Log.Write("--------------------------------------------------------------------");
 			for (var i = 1; i < passNumber; i++)
 			{
 				Assert.Equal(ratios[i - 1], ratios[i]);
